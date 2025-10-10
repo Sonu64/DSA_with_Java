@@ -26,6 +26,7 @@ public class calculator {
             case '/' :
                 System.out.println("Quotient = " + a/b);
                 break;
+
             case '%' :
                 System.out.println("Remainder = " + a%b);
                 break;

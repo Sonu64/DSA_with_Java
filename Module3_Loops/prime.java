@@ -9,7 +9,7 @@ public class prime {
         System.out.print("Enter a number to check for Prime: ");
         num = in.nextInt();
 
-        for(i = 2; i < num/2; i++) {
+        for(i = 2; i < num/2; i++) { //Checking upto Math.sqrt(num) is also fine.
             if (num % i == 0) {
                 isPrime = false;
                 break;

@@ -8,13 +8,14 @@ public class pattern11 {
 
         /* Upper Pyramid */
         for(int i=1; i<=n; i++) {
+
             // Spaces
             for(int spaces=1; spaces<n-i+1; spaces++)
                 System.out.print("  ");
-            // 1 to n
+            // i to 1
             for(int j=i; j>=1; j--)
                 System.out.print(j+" ");
-            // 2 to n
+            // 2 to i
             for(int k=2; k<=i; k++)
                 System.out.print(k+" ");
             System.out.println();
@@ -24,12 +25,12 @@ public class pattern11 {
         for(int i=1; i<=n-1; i++) {
             // Spaces
             for(int spaces=1; spaces<=i; spaces++)
-                System.out.print("##");
-            // n-1 to 1
-            for(int j=n-1; j<=i; j++)
+                System.out.print("  ");
+            // n-i to 1
+            for(int j=n-i; j>=1; j--)
                 System.out.print(j+" ");
-            // 2 to n-1
-            for(int k=2; k<=i-1; k++)
+            // 2 to n-i
+            for(int k=2; k<=n-i; k++)
                 System.out.print(k+" ");
             System.out.println();
         }

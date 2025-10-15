@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Module2_Conditionals" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module3_Loops" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module4_Patterns" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Module5_Functions" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$" />
     </content>
     <orderEntry type="inheritedJdk" />

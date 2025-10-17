@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Module3_Loops" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module4_Patterns" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module5_Functions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Module6_Arrays1" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$" />
     </content>
     <orderEntry type="inheritedJdk" />

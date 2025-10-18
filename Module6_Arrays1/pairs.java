@@ -12,7 +12,7 @@ public class pairs {
     public static void main(String[] args) {
         int nums[] = {2, 4, 6, 8, 10};
         System.out.println("All Unique pairs in the Array are - ");
-        
+
         printPairs(nums, nums.length);
     }
 }

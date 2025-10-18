@@ -20,3 +20,4 @@ public class subArrays {
         printAllSubArrays(nums, nums.length);
     }
 }
+

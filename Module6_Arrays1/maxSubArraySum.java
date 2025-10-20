@@ -10,11 +10,14 @@ public class maxSubArraySum {
                 sum = 0;
                 for (int k = i; k < j + 1; k++) {
                     sum = sum + nums[k];
+
                     if (sum > max) {
                         max = sum;
                         //System.out.print("\nSum = " + sum);
                     }
                 }
+                // Printing all Sums
+                System.out.println(sum);
             }
         }
         return max;

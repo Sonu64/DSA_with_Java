@@ -1,20 +1,26 @@
 public class maxSubArraySumKadanesAlgorithm {
     public static int applyKadanesAlgorithm(int nums[], int SIZE) {
-        int sum = 0, max = Integer.MIN_VALUE, startingPosition = 0, endingPosition = 0, i;
+        int sum = 0, max = Integer.MIN_VALUE, startingPosition = -1, endingPosition = -1, i, start = 0;
         for(i = 0; i < SIZE; i++) {
-            //sum = 0
+            // Whenever sum is 0, that's the starting of a new subarray
+            if (sum == 0)
+                start = i;
+
             sum = sum + nums[i];
+
+            // And whenever we get a sum > max, start is the startingPosition
+            // and the current index is the endingPosition
             if (sum > max) {
                 max = sum;
+                startingPosition = start;
                 endingPosition = i;
             }
             if (sum < 0) {
                 sum = 0;
-                startingPosition++;
             }
         }
-        
-        //maxPivot = i;
+
+
         System.out.println("Subarray with Maximum Sum is - ");
         for(int j = startingPosition; j < endingPosition + 1; j++) {
             System.out.print(nums[j] + " ");

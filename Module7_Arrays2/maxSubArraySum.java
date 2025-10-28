@@ -1,7 +1,6 @@
 /* Finding the Maximum Sum obtained by summing up all possible Subarrays of an array
 *  using Brute-Force Approach */
 
-import java.util.Scanner;
 public class maxSubArraySum {
     public static int findMaxSubArraySum(int nums[], int SIZE) {
         int max = Integer.MIN_VALUE, sum = 0;

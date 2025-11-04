@@ -7,11 +7,19 @@ public class AbstractClasses {
 
 abstract class Vehicle {
     String color;
+
+    // No-arg constructor, must be present if Child implicitly calls super()
     public Vehicle() {
-        this.color = "Unspecified Color, Implicitly Parent Constructor " +
-                "called and Child Constructor didn't have this.color = passed color.";
-        System.out.println("Vehicle Constructor called.");
+        this.color = "DEFAULT COLOR SET BY VEHICLE's NO-ARG CONSTRUCTOR ";
+        System.out.println("Vehicle No-Arg Constructor (Implicit) called.");
     }
+
+    // Parameterized Constructor
+    public Vehicle(String color) {
+        this.color = color;
+        System.out.println("Vehicle Parameterized Constructor called (NOT USED).");
+    }
+
     // Concrete Method
     void move() {
         System.out.println("Vehicle Moves...");
@@ -23,7 +31,16 @@ abstract class Vehicle {
 
 class Car extends Vehicle {
     public Car(String color) {
-//        this.color = color;
+        // NO EXPLICIT super() CALL HERE.
+        // The Java compiler silently inserts: super();
+        // This calls the Vehicle() (no-arg) constructor above.
+        // We are not doing this.color = color, so color passed to Car constructor will be ignored
+
+        // Explicit call to Parent constructor calls the parameterized version
+        // super("Red");
+
+        // this.color = color;
+
         System.out.println("Car constructor called.");
     }
 

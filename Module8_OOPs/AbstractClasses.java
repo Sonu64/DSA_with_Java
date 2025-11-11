@@ -22,6 +22,7 @@ abstract class Vehicle {
 
     // Concrete Method
     void move() {
+        
         System.out.println("Vehicle Moves...");
     }
 
@@ -36,7 +37,7 @@ class Car extends Vehicle {
         // This calls the Vehicle() (no-arg) constructor above.
         // We are not doing this.color = color, so color passed to Car constructor will be ignored
 
-        // Explicit call to Parent constructor calls the parameterized version
+        // Explicit call to Parent constructor, parameterized version
         // super("Red");
 
         // this.color = color;

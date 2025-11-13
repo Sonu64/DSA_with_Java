@@ -14,7 +14,7 @@ class Pencil {
     }
     // If there is explicit super call, then this Arged constructor will run, unless we do super() only
     Pencil(String color) {
-        System.out.println("Arged Pencil Constructor called, using super(" +
+        System.out.println("Arged Pencil Constructor called, using super(<PARAM>)" +
                 ")");
         this.color = color;
     }

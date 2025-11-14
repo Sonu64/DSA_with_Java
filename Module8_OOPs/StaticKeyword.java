@@ -8,7 +8,7 @@ public class StaticKeyword {
         System.out.println("\nStudent Details - :\nName: " + s1.getName() + "\nRoll: " + s1.getRoll() + "\nPercentage: " + s1Percentage);
 
         _Student s2 = new _Student();
-        s2.setName("Tumpa Sona");
+        s2.setName("Lucy Smith");
         s2.setRoll(23);
         // School already assigned by s1
         int s2Percentage = _Student.getPercentage(50, 50, 100);

@@ -26,6 +26,7 @@ public class runner {
         System.out.println("Difference = " + myAdvCalc.subtract(a, b));
         System.out.println("Product = " + myAdvCalc.multiply(a, b));
         System.out.println("Integer Quotient = " + myAdvCalc.divide(a, b));
-
+        // Error, showTest must be public to access outside pkg
+        myAdvCalc.showTest();
     }
 }

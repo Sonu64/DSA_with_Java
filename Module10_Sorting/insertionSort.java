@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 public class insertionSort {
 
     public static void performInsertionSort(int arr[], int n) {
@@ -26,6 +29,7 @@ public class insertionSort {
         System.out.print("Original Array: ");
         displayArray(arr, arr.length);
         System.out.println();
+
         performInsertionSort(arr, arr.length);
         System.out.print("Sorted Array: ");
         displayArray(arr, arr.length);

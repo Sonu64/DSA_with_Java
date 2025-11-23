@@ -44,9 +44,9 @@ public class creation_and_searching {
         System.out.println("Matrix is - ");
         displayMatrix(matrix, rows, cols);
 
-    
+        System.out.print("Enter number to search in matrix: ");
+        int searchNum = in.nextInt();
+        search(searchNum, matrix, rows, cols);
 
     }
-
-
 }

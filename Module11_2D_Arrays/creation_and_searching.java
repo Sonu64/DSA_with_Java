@@ -11,19 +11,7 @@ public class creation_and_searching {
         }
     }
 
-    public static boolean search(int key, int matrix[][], int rows, int cols) {
-        boolean found = false;
-        for(int i=0; i<rows; i++) {
-            for(int j=0; j<cols; j++) {
-                if (matrix[i][j] == key) {
-                    System.out.println(key + " is found at index " + i + ", " + j + ".");
-                    return true;
-                }
-            }
-        }
-        System.out.println(key + " is not found in the matrix.");
-        return false;
-    }
+
 
 
     public static void main (String[] args) {
@@ -48,5 +36,18 @@ public class creation_and_searching {
         int searchNum = in.nextInt();
         search(searchNum, matrix, rows, cols);
 
+    }
+
+    public static boolean search(int key, int matrix[][], int rows, int cols) {
+        for(int i=0; i<rows; i++) {
+            for(int j=0; j<cols; j++) {
+                if (matrix[i][j] == key) {
+                    System.out.println(key + " is found at index " + i + ", " + j + ".");
+                    return true;
+                }
+            }
+        }
+        System.out.println(key + " is not found in the matrix.");
+        return false;
     }
 }

@@ -9,6 +9,7 @@ public class spiralMatrix {
                 System.out.print(arr[startingRow][j] + "  ");
             }
             startingRow++;
+
             // Print RIGHT, startingRow+1 as 1st element of starting row already printed
             for (int i = startingRow; i <= endingRow; i++) {
                 System.out.print(arr[i][endingCol] + "  ");

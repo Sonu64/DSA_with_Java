@@ -2,13 +2,14 @@ public class searchInSortedMatrix {
 
     private static void stairCaseSearch(int key, int[][] arr, int rows, int cols) {
         int rowIndex = 0, colIndex = cols-1;
-        while (rowIndex < rows && colIndex < cols) {
+        while (rowIndex < rows && colIndex >= 0) {
             if (key < arr[rowIndex][colIndex]) {
                 // Move LEFT
                 colIndex--;
             }
             else if (key > arr[rowIndex][colIndex]){
                 // Move DOWN
+
                 rowIndex++;
             }
             else {
@@ -26,6 +27,6 @@ public class searchInSortedMatrix {
                 {27, 29, 37, 48},
                 {32, 33, 39, 50}
         };
-        stairCaseSearch(35, arr, arr.length, arr[0].length);
+        stairCaseSearch(3, arr, arr.length, arr[0].length);
     }
 }

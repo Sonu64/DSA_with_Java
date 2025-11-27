@@ -11,10 +11,12 @@ public class palindromeString {
         String reversedString = new String(wordArray);
         if (reversedString.equals(actualString))
             return true;
-//        System.out.println(reversedString);
-//        System.out.println(actualString);
         return false;
     }
+
+
+
+
     public static boolean differentIsPalindrome(String word, int n) {
         for (int i=0; i<=(n/2); i++) {
             if (word.charAt(i)==' ' || word.charAt(n-i-1)==' ') continue;

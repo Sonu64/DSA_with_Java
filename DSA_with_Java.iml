@@ -15,6 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Module9_Packages" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module10_Sorting" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module11_2D_Arrays" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Module12_Strings" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$" />
     </content>
     <orderEntry type="inheritedJdk" />

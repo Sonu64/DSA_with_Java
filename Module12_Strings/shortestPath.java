@@ -2,7 +2,7 @@ public class shortestPath {
     public static double findShortestPath(String directions, int n) {
         int x = 0, y = 0;
         double shortestPath = 0.0;
-        boolean invalidDir = false;
+        directions = directions.toUpperCase();
         for (int i = 0; i < n; i++) {
             char direction = directions.charAt(i);
             if (direction == 'E')
@@ -13,9 +13,9 @@ public class shortestPath {
                 y++;
             else if (direction == 'S')
                 y--;
-            else {
+            else
                 return -1;
-            }
+
         }
         shortestPath = Math.sqrt((x * x) + (y * y));
         return shortestPath;
@@ -24,8 +24,8 @@ public class shortestPath {
     public static void main (String[] args) {
         String direction1 = "WNEEneSENNN";
         String direction2 = "weeZ";
-        double sp1 = findShortestPath(direction1.toUpperCase(), direction1.length());
-        double sp2 = findShortestPath(direction2.toUpperCase(), direction2.length());
+        double sp1 = findShortestPath(direction1, direction1.length());
+        double sp2 = findShortestPath(direction2, direction2.length());
         if (sp1 != -1)
             System.out.println("Shortest Path for 1st direction = " + sp1);
         else

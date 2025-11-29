@@ -12,7 +12,7 @@ public class compression {
                     c.append(count.toString());
                 count = 1;
             }
-            // Last character reached and is different from previous characters -> Mulltiple Occurence
+            // Last character reached and is same as previous characters -> Multiple Occurence
             // of Last character 
             else if (i == n - 1 && s.charAt(i) == lastChar) {
                 c.append(lastChar.toString());

@@ -38,7 +38,7 @@ public class compression {
         return compressedString;
     }
     public static void main(String[] args) {
-        String longString = "aabbbcdd";
+        String longString = "aabbbccdv";
         System.out.println(findCompressedString(longString, longString.length()));
     }
 }

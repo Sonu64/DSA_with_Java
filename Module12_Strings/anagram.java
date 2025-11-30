@@ -2,9 +2,13 @@ import java.util.Arrays;
 public class anagram {
 
     private static boolean isAnagram(String s1, String s2) {
-        
-        s1 = s1.toLowerCase();
-        s2 = s2.toLowerCase();
+        s1 = s1.trim().toLowerCase();
+        s2 = s2.trim().toLowerCase();   
+
+        if (s1.length() != s2.length()) return false;
+
+        System.out.println(s1);
+        System.out.println(s2);
 
         char s1Array[] = s1.toCharArray();
         char s2Array[] = s2.toCharArray();
@@ -21,7 +25,7 @@ public class anagram {
 
     }
     public static void main(String[] args) {
-        String s1 = "race", s2 = "care";
+        String s1 = "race", s2 = "care  ";
         if(isAnagram(s1, s2))
             System.out.println("Anagrams !");
         else

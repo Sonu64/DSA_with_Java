@@ -1,10 +1,10 @@
 public class compression {
 
     public static String findCompressedString(String s, int n) {
-        Integer count = 0;
+        Integer count = 1;
         Character lastChar = s.charAt(0);
         StringBuilder c = new StringBuilder("");
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             // New Character found and it is NOT Last character of the String.
             if (s.charAt(i) != lastChar && i != n - 1) {
                 c.append(lastChar.toString());
@@ -38,7 +38,7 @@ public class compression {
         return compressedString;
     }
     public static void main(String[] args) {
-        String longString = "aabbbccdv";
+        String longString = "aabccddvvv";
         System.out.println(findCompressedString(longString, longString.length()));
     }
 }

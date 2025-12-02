@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class evenOdd {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int num = in.nextInt();
+        if ((num & 1) == 1)
+            System.out.println("Odd Number");
+        else
+            System.out.println("Even Number");
+    }
+}

@@ -26,7 +26,8 @@ public class TwoUniqueElements {
         for(int i=0; i<nums.length; i++) {
             // Get Bit at least_significant_setBit_position
             int bit = nums[i] & (1 << least_significant_setBit_Position);
-            if (bit == 1) {
+            if (bit != 0) { // bit == 1 isn't guarantee for set Bit, because the number can be != 1 but != 0 as well.
+                // But if number is 0, definitely bit is Zero.
                 setArray[setIndex] = nums[i];
                 setIndex++;
             }

@@ -12,6 +12,7 @@ public class TwoUniqueElements {
             num = num >> 1;
         }
         return pos;
+        ///  Or  return Integer.numberOfTrailingZeroes(num)
     }
 
     public static int[] findUniqueElements(int nums[]) {

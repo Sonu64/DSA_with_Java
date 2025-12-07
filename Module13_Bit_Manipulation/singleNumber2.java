@@ -14,6 +14,7 @@ public class singleNumber2 {
             // Set bit at bitPosition to 1 in result
             result = result | (bitCount << bitPosition);
         }
+
         return result;
     }
 

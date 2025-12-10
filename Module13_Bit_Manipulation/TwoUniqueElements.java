@@ -50,7 +50,7 @@ public class TwoUniqueElements {
 
     public static void main(String[] args) {
 
-        int nums[] = {5, 4, 1, 4, 3, 5, 1, 2, 2, 3, 9, 9, 10, 67};
+        int nums[] = {1,2,1,3,2,5};
         int uniques[] = findUniqueElements(nums);
 
         System.out.println("First unique number, n1 = " + uniques[0]);

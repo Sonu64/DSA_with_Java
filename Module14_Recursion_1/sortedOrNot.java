@@ -1,20 +1,25 @@
 public class sortedOrNot {
     public static boolean isSorted(int[] arr, int n) {
-//        n = arr.length;
+        int i = n-2;
         boolean isSorted = false;
 
-        if (n == 0) {
-            if (arr[n] < arr[n+1])
+        if (i == 0) {
+            if (arr[i] < arr[i+1])
                 return true;
             else
                 return false;
         }
-        else
-            return (isSorted(arr, n) && isSorted(arr, n-1));
+        else {
+            if (arr[i] < arr[i+1])
+                isSorted = true;
+            return (isSorted && isSorted(arr, n-1));
+        }
     }
 
+
+    
     public static void main (String[] args) {
-        int arr[] = {1, 22, 34, 78};
+        int arr[] = {1, 22, 115, 900, 1000, 1001, 9};
         System.out.println(isSorted(arr, arr.length));
     }
 }

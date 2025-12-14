@@ -1,25 +1,16 @@
 public class sortedOrNot {
-    public static boolean isSorted(int[] arr, int n) {
+    public static boolean isSorted_from_end(int[] arr, int n) {
+        if (n <= 1)
+            return true;
         int i = n-2;
-        boolean isSorted = false;
-
-        if (i == 0) {
-            if (arr[i] < arr[i+1])
-                return true;
-            else
-                return false;
-        }
-        else {
-            if (arr[i] < arr[i+1])
-                isSorted = true;
-            return (isSorted && isSorted(arr, n-1));
-        }
+        if (arr[i+1] < arr[i])
+            return false;
+        return isSorted_from_end(arr, n-1);
     }
 
-
-    
     public static void main (String[] args) {
-        int arr[] = {1, 22, 115, 900, 1000, 1001, 9};
-        System.out.println(isSorted(arr, arr.length));
+        int arr[] = {1, 2};
+//        System.out.println(isSorted_from_beginning(arr, 0));
+        System.out.println(isSorted_from_end(arr, arr.length));
     }
 }

@@ -3,12 +3,13 @@ public class tilingProblem {
         // code here
         if (n==0 || n==1) return 1;
 
-        // Choice of Horizontal
-        int horizontalWays = numberOfWays(n-1);
-        // Choice of Vertical
-        int verticalWays = numberOfWays(n-2);
 
-        return (horizontalWays + verticalWays);
+        // Choice of Vertical
+        int verticalWays = numberOfWays(n-1);
+        // Choice of Horizontal
+        int horizontalWays = numberOfWays(n-2);
+
+        return (verticalWays + horizontalWays);
     }
 
     public static void main(String[] args) {

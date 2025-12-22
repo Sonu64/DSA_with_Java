@@ -1,32 +1,31 @@
-public class binaryStrings {
-    public static String binary_strings(int n, Integer last, int times) {
-        if (n == 0)
-            return "";
-        else if (n == 1)
-            return Integer.toString(last);
-        else {
+import java.util.Scanner;
 
-            if (last == 0) {
-                if (times % 2 == 0)
-                    System.out.print(last);
-                if (times % 2 == 0)
-                    return ((Integer.toString(last) + binary_strings(n - 1, 0, times + 1)) + " " + (Integer.toString(last) + binary_strings(n - 1, 1, times + 1)));
-                else
-                    return ((binary_strings(n - 1, 0, times + 1) + Integer.toString(last)) + " " + (binary_strings(n - 1, 1, times + 1) + Integer.toString(last)));
+public class binaryStrings {
+    public static void binary_strings(int n, String result) {
+        if (result.equals("")) {
+            binary_strings(n, "0");
+            binary_strings(n, "1");
+        }
+        else if (n == 1)
+            System.out.print(result + " ");
+        else {
+            if (result.charAt(result.length()-1) == '0') {
+                // result is a String, not StringBuilder, so its Actual value never gets changed
+                binary_strings(n-1, result + "0");
+                binary_strings(n-1, result + "1");
             }
-                else
-            if (times % 2 == 0)
-                System.out.print(last);
-                    if (times % 2 == 0)
-                        return Integer.toString(last) + binary_strings(n - 1, 0, times+1);
-                    else
-                        return binary_strings(n - 1, 0, times+1) + Integer.toString(last);
+            else {
+                binary_strings(n-1, result + "0");
+            }
         }
     }
 
     public static void main(String[] args) {
-        System.out.print(binary_strings(3, 0, 1));
-        System.out.print(", ");
-        System.out.print(binary_strings(3, 1, 1));
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int n = in.nextInt();
+        System.out.println("All Binary Strings of length N, without consecutive Ones are - ");
+
+        binary_strings(n, "");
     }
 }

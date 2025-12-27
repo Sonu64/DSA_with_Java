@@ -5,8 +5,11 @@ public class substringsWithStartEndSame {
         System.out.println("f(" + start + ", " + end + ")");
         int count = 0;
         // Base Cases when length of String is 1 or 0
-        if (end-start == 1 || end==start) {
-            return end-start;
+        if (start >= end) {
+            return 0;
+        }
+        if (end - start == 1) {
+            return 1;
         }
         // Fallback Case
         if (s.charAt(start) == s.charAt(end-1))

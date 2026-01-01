@@ -19,6 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Module13_Bit_Manipulation" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module14_Recursion_1" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Module15_Recursion_2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Module16_Divide_And_Conquer" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$" />
     </content>
     <orderEntry type="inheritedJdk" />

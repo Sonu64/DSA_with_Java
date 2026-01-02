@@ -13,7 +13,7 @@ public class quick_sort {
         int pivotElement = arr[end];
         int i = start - 1; // To make place for elements < pivotElement
         int j = 0; // Iterator of main Array
-        for (j = 0; j < arr.length; j++) {
+        for (j = start; j < arr.length; j++) {
             // For elements Lesser than pivotElement -> Swap, as they should be left of pivotIndex
             // in the new Empty Array --> Actually this is not a new array, we swap arr[j] with arr[i]
             // as arr[j] is in wrong position but arr[i] was already in correct position.

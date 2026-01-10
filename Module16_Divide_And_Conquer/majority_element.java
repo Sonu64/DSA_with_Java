@@ -2,7 +2,7 @@ public class majority_element {
 
   public static int findMajority(int[] arr, int start, int end) {
 
-        if (start == end) retur n arr[start];
+        if (start == end) return arr[start];
 
         int mid = start + ((end - start) / 2);
 

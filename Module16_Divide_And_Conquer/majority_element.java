@@ -2,10 +2,10 @@ public class majority_element {
 
   public static int findMajority(int[] arr, int start, int end) {
 
-        if (start == end) return arr[start];
+        if (start == end) retur n arr[start];
 
         int mid = start + ((end - start) / 2);
-        
+
         int threshold = (end - start) / 2;
         int countLeft = 0, countRight = 0;
 
@@ -15,24 +15,29 @@ public class majority_element {
         int rightMajority = findMajority(arr, mid + 1, end);
     
         if (leftMajority == rightMajority) {
-            
             int count = 0;
             for (int i = start; i <= end; i++)
                 if (arr[i] == leftMajority)
                     count++;
             if (count > threshold)
                 return leftMajority; // or rightMajority
-        } else {
+        } 
+
+
+        else {
             for (int i = start; i <= end; i++) {
                 if (arr[i] == leftMajority)
                     countLeft++;
                 else if (arr[i] == rightMajority)
                     countRight++;
             }
-            
         }
+
+
         if (countLeft > countRight && countLeft > threshold) return leftMajority;
-            else if (countRight > countLeft && countRight > threshold) return rightMajority;
+
+        else if (countRight > countLeft && countRight > threshold) return rightMajority;
+
         return -1;
 }
 

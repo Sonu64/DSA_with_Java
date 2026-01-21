@@ -12,7 +12,7 @@ public class forLoops {
          * Print output as specified in the question.
          */
         Scanner in = new Scanner(System.in);
-        int n = in .nextInt();
+        int n = in.nextInt();
         int tempSum = 0, a, b;
 
         if (n == 1) 

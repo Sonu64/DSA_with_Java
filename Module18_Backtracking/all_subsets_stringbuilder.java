@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class all_subsets_stringbuilder {
 
+    // Global variable to keep track of the index in results array
     static int count = 0;
 
     public static void showAllSubsets(StringBuilder[] results, String original, StringBuilder ans, int i) {

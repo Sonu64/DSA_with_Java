@@ -76,3 +76,12 @@ public class permutations
       System.out.println ("Your Empty String has no permutations !");
   }
 }
+
+
+/*The "Hidden" Backtrack: You don't need a manual .delete() step here! Since you never modified the original inputString or outputString in the current frame, the state is naturally "restored" when the recursive call returns. If we used StringBuilder instead of Strings for outputString, we need .delete() manually. 
+➡️ first append currChar to outputString
+➡️ then recursively call f(newInputString, outputString, ...) 
+➡️ then remove that last inserted char via outputString.delete(size-1)
+🙂 inputString is still kept String, keeping it String (Immutable) makes sense as the data to be shared across calls (persistent data) needs to be StringBuilder(Mutable)--> manual deletion needed to go back one level.
+
+*/

@@ -1,32 +1,78 @@
-public class permutations {
-    
-    /**
-     * 
-     * @param inputString --> Contains the actual String --> Characters will be taken OUT from here
-     * @param outputString --> Contains the new string generated from the inputString --> Characters will be put IN here.
-     * Function simply prints all Permutations, not appending to something like results Array or similar.
-     */
-    static void permutations(String inputString, String outputString) {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
-        // Base Case
-        if (inputString.length() == 0) {
-            System.out.print(outputString + " ");
-            return;
-        }
+public class permutations
+{
+  /**
+   *
+   * @param inputString --> Contains the actual String --> Characters will be
+   *     taken OUT from here
+   * @param outputString --> Contains the new string generated from the
+   *   inputString --> Characters will be put IN here.
+   */
+  static void
+  permutations (String inputString, String outputString,
+                ArrayList<String> results)
+  {
+    //...Base case
+    if (inputString.length () == 0)
+      {
+        results.add (outputString);
+        return;
+      }
+    //..Recursive Steps
+    // Loop through every character
+    for (int i = 0; i < inputString.length (); i++)
+      {
+        // Store current Character to be added to outputString Later
+        char currChar = inputString.charAt (i);
+        // As Strings in Java are True Pass by value, making a new string which
+        // does not contain the current char -> That char is
+        //.. already chosen
+        // newInputString is needed because Strings are TRUE pass by value
+        String newInputString
+            = inputString.substring (0, i)
+              + inputString.substring (i + 1, inputString.length ());
+        // Once a character is chosen -> Go DEEP in the path --> Append current
+        // character to outputString in the process
+        permutations (newInputString, outputString + currChar, results);
+      }
+  }
 
-        // Loop to iterate through each character
-        for(int i=0; i<inputString.length(); i++) {
-            char currChar = inputString.charAt(i);
-            // Removing the character currChar from the inputString
-            String newString = inputString.substring(0, i) + inputString.substring(i+1, inputString.length());
-            // Once a character is chosen ---> Go Deep into the branch with modified inputString, which does not include that character
-            permutations(newString, outputString+currChar); // Appending occurs here actually !
-        }
-    }
-    
-    public static void main(String[] args) {
-        String inputString = "abcd";
-        String outputString = "";
-        permutations(inputString, outputString);
-    }
+  public static void
+  main (String[] args)
+  {
+    Scanner in = new Scanner (System.in);
+    System.out.print ("Enter a String: ");
+    String inputString = in.nextLine ();
+    String outputString = "";
+    ArrayList<String> results = new ArrayList<> ();
+    permutations (inputString, outputString, results);
+
+    // Removing Duplicates by converting to Sets, order gone !
+    // Removing duplicates using Sets.
+    // Convert to Set (removes duplicates and loses order,
+    // ... but in the question order does not matter)
+    Set<String> resultSet = new HashSet<> (results);
+    // Convert back to ArrayList<String>
+    // Convert Set back to List
+    ArrayList<String> listFromSet = new ArrayList<> (resultSet);
+
+    if (inputString.length () != 0)
+      {
+        System.out.println ("--- All Permutations of " + inputString
+                            + " are as follows ---");
+        for (int i = 0; i < listFromSet.size (); i++)
+          {
+            if (i == listFromSet.size () - 1)
+              System.out.print (listFromSet.get (i));
+            else
+              System.out.print (listFromSet.get (i) + ", ");
+          }
+      }
+    else
+      System.out.println ("Your Empty String has no permutations !");
+  }
 }

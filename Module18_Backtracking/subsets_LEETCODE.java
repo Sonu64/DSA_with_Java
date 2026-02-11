@@ -13,14 +13,13 @@ public class subsets_LEETCODE {
             return;
         }
 
-        // Choice 1: Include nums[i]
+        // Do...
         temp.add(nums[i]);
+        // Explore...
         solve(nums, i + 1, temp);
-
-        // Backtrack: Remove the element to explore Choice 2
+        // Undo... 
         temp.remove(temp.size() - 1);
-
-        // Choice 2: Exclude nums[i]
+        // Explore...
         solve(nums, i + 1, temp);
     }
 

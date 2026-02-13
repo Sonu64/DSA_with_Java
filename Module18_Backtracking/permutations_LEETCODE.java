@@ -7,6 +7,8 @@ public class permutations_LEETCODE {
 
     public static void solve(int[] nums, List<Integer> temp) {
         // ...Base Case
+
+        
         if (temp.size() == nums.length) {
             results.add(new ArrayList<>(temp)); 
             return;

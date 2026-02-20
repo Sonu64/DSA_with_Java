@@ -1,14 +1,11 @@
-import java.util.List;
-import java.util.ArrayList;
-
-public class n_Queens_LEETCODE {
+public class n_Queens_CountWays {
     //..Global Results Array
-    static List<List<String>> results = new ArrayList<>();
+    static int count = 0;
 
     public static void solve(char[][] board, int row, int n) {
         // Base Case: All queens placed
         if (row == n) {
-            results.add(construct(board)); // Convert to List<String> here
+            count++;
             return;
         }
 
@@ -26,14 +23,6 @@ public class n_Queens_LEETCODE {
         }
     }
 
-    // This helper converts the 2D array to the specific List<String> format.
-    private static List<String> construct(char[][] board) {
-        List<String> res = new ArrayList<>();
-        for (int i = 0; i < board.length; i++) {
-            res.add(new String(board[i])); // Converts one char row into a String
-        }
-        return res;
-    }
 
     private static boolean notUnderAttack(char[][] board, int row, int col, int n) {
         // Up
@@ -51,9 +40,9 @@ public class n_Queens_LEETCODE {
         return true;
     }
 
-    public static List<List<String>> solveNQueens(int n) {
-        results.clear();
+    public static int countWays(int n) {
         // 1. Create a 2D char array (much easier to modify!)
+        // This is mandatory for the backtracking to work, as we need to mark placements and undo them. This is not possible with only the number n. --> Don't confuse with Grid-Ways where no checking is needed, we just need to move in 2 or 4 directions.
         char[][] board = new char[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -62,17 +51,12 @@ public class n_Queens_LEETCODE {
         }
 
         solve(board, 0, n);
-        return results;
+        return count;
     }
 
     public static void main(String[] args) {
         int n = 4; // Example input
-                List<List<String>> allSolutions = solveNQueens(n);
-        for (List<String> solution : allSolutions) {
-            for (String row : solution) {
-                System.out.println(row);
-            }
-            System.out.println();
-        }
+        int count = countWays(n);
+        System.out.println(count);
     }
 }

@@ -1,7 +1,10 @@
-import java.util.List;
+    import java.util.List;
 import java.util.ArrayList;
 
-public class n_Queens_LEETCODE {
+
+public class n_Queens_PrintOneSolution {
+
+
     //..Global Results Array
     static List<List<String>> results = new ArrayList<>();
 
@@ -19,7 +22,9 @@ public class n_Queens_LEETCODE {
                 
                 // Explore with Done
                 solve(board, row + 1, n);
-                
+                if (results.size() > 0) return; 
+                // Only want one solution, so break/return after the first valid placement
+
                 // Undo (Backtrack) with undoing above step
                 board[row][col] = '.';
             }

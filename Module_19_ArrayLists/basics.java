@@ -57,5 +57,9 @@ public class basics {
         for(int i = 0; i < nums.size(); i++) 
             System.out.println("Number @ position " + i + " is " + nums.get(i)); 
 
+        nums.clear();
+        System.out.println("Cleared out all the numbers....");
+        System.out.println(nums);
+
     }    
 }

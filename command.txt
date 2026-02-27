@@ -1,0 +1,3 @@
+PWSH command to Remove all .class files in folder including its subfolders - 
+
+Get-ChildItem -Include *.class -Recurse | Remove-Item

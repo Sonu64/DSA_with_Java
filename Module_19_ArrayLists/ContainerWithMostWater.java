@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ContainerWithMostWater {
 
-    // Brute Force Approach !
+    // Brute Force Approach ! --> O(n^2)
     static int solve(ArrayList<Integer> lines) {
  
     int waterAmount = Integer.MIN_VALUE;
@@ -21,11 +21,35 @@ public class ContainerWithMostWater {
     return waterAmount;
 }
 
+
+    // 2-Pointer Approach !! --> O(n)
+    private static int solveUsing2Pointer(ArrayList<Integer> heights) {
+        int n = heights.size();
+        int leftPointer = 0;
+        int rightPointer = n-1;
+        int currWater = 0;
+        int maxWater = 0;
+        while(leftPointer <= rightPointer) {
+            int height = Math.min(heights.get(leftPointer), heights.get(rightPointer));
+            int width = rightPointer - leftPointer;
+            currWater = height*width;
+            maxWater = Math.max(currWater, maxWater);
+            if (heights.get(leftPointer) < heights.get(rightPointer))
+                leftPointer++;
+            else
+                rightPointer--;
+        }
+        return maxWater;
+    }
+
     public static void main(String[] args) {
 
         ArrayList<Integer> lines = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
-        int ans = solve(lines);
-        System.out.println(ans);
+        int ans1 = solve(lines);
+        System.out.println(ans1);
+
+        int ans2 = solveUsing2Pointer(lines);
+        System.out.println(ans2);
     }
 }

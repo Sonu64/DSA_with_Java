@@ -60,7 +60,7 @@ public class PairSum {
         ArrayList<Integer> ans = solve(list, targetSum);
         ArrayList<Integer> ans2 = solve(list, targetSum);
         
-        System.out.println("Result using Brute Force Approach = " + ans);
+        System.out.println("\nResult using Brute Force Approach = " + ans);
         System.out.println("Result using 2-Pointer Approach = " + ans2);
         System.out.println("P.S:- For this to work, the Array/ArrayList must be sorted !");
     }

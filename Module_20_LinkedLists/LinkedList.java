@@ -30,6 +30,37 @@ public class LinkedList {
         }
     }
     
+    private void addLast(int data) {
+        Node temp = new Node(data);
+        // Linked List is empty 
+        if (head == null) {
+            head = tail = temp;
+            return;
+        }
+        //Else
+        else {
+            tail.next = temp;
+            tail = temp;
+        }
+    }
+
+    private void printList() {
+        Node curr = head;
+        // checking curr != tail will make the loop exit even before printing the data part of tail !!!
+        if(curr == null) {
+            return;
+        }
+        if (curr==tail) {
+            System.out.println(head.data);
+            return;
+        }
+        // This is beautiful condition checking! Checking curr.next will not work, same for checking curr != tail..Just check when curr becomes null itself after moving to its "next" part.
+        while (curr != null) {
+            System.out.println(curr.data + "-->");
+            curr = curr.next;
+        }
+    }
+
     public static void main(String[] args) {
 
         LinkedList list1 = new LinkedList(); 

@@ -89,10 +89,56 @@ public class LinkedList {
         size++;
     }
 
+    public void removeFirst() {
+        // If no element present
+        if(getSize()==0) {
+            System.out.println("Empty Linked List !");
+            return;
+        }
+        // If only one element present
+        if(getSize()==1) {
+            head = tail = null;
+            size--;
+            return;
+        }
+        this.head = this.head.next; 
+        size--;
+        return;
+    }
+
+    public void removeLast() {
+        //Empty List
+        if(getSize()==0) {
+            System.out.println("LinkedList is Empty !");
+            return;
+        }
+        // Single Element
+        if(getSize()==1) {
+            this.head = this.tail = null;
+            size--;
+            return;
+        }
+        //Normal Chain
+        Node prev = this.head;
+        while(prev.next.next != null) {
+            prev = prev.next;
+        }
+        // 2nd Last Node found !
+        //...cutting link to tail
+        prev.next = null;
+        //...rejoining tail
+        tail = prev;
+        size--;
+        return;
+        // 1st Last: The Tail itself (Index: size - 1).
+        // 2nd Last: The Node before the Tail (Index: size - 2).
+    }
+
     public static void main(String[] args) {
 
         LinkedList list1 = new LinkedList(); 
         
+
         // A new instance of LinkedList class, this is a LinkedList Object. Made inside the static main method.
 
         // A Static method (like main) is like a ghost—it has no "body" (object). Therefore, it cannot see "Instance" variables like this.head or this.tail directly because it doesn't know which house's door you're talking about. That's why we "have to" create our instance-variables -> Objects of the class.

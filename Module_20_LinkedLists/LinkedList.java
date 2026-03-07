@@ -1,6 +1,7 @@
 public class LinkedList {
     
-    // Nested classes aren't that difficult :)
+    // Nested-Static Class.
+    // See image for details.
     private static class Node {
         int data;
         Node next;
@@ -14,10 +15,13 @@ public class LinkedList {
     // Class level, needs objects to be made to access these. Non-static.
     private Node head; // may put static for both this.head and this.tail, but would be unable to create multiple lists then.
     private Node tail;
+
+    private int size = 0;
     
     public void addFirst(int data) {
         //Step-1: Create the new Node
         Node temp = new Node(data);
+        size++;
         //..If Linked List is empty..
         if(this.head == null) {
             this.head = this.tail = temp;
@@ -32,6 +36,7 @@ public class LinkedList {
     
     public void addLast(int data) {
         Node temp = new Node(data);
+        size++;
         // Linked List is empty 
         if (this.head == null) {
             this.head = this.tail = temp;
@@ -53,8 +58,35 @@ public class LinkedList {
         }
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void addAtIndex(int index, int data) {
-        
+        Node temp = new Node(data);
+        int count = 0;
+        Node curr = this.head;
+
+        if(index==0) {
+            addFirst(data);
+            return;
+        }
+
+        // getSize()-1 will add @ one index before last index.
+        // getSize() is the one that pushes, old size = 3, newsize = 4, which is the getSize(), not getSize()-1 !
+        if(index==getSize()){
+            addLast(data);
+            return;
+        }
+
+        while(count < index-1) {
+            // if we need to insert @ index m, then we must stop @ index m-1, in 0-based indexing !!!important!!!
+            curr = curr.next;
+            count++;
+        }
+        temp.next = curr.next;
+        curr.next = temp;
+        size++;
     }
 
     public static void main(String[] args) {

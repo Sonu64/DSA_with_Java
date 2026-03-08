@@ -134,6 +134,21 @@ public class LinkedList {
         // 2nd Last: The Node before the Tail (Index: size - 2).
     }
 
+    public int iterativeSearch(int target) {
+        int count = 0;
+        Node temp = this.head;
+        while(temp != null) {
+            if(temp.data==target) {
+                return count; // count++ must be below this, 
+                // try imagining the scenario of single element,
+                // where we must return 0, not 1.
+            }
+            count++;
+            temp = temp.next;
+        }
+        return -1;//no valid count found !            
+    }
+
     public static void main(String[] args) {
 
         LinkedList list1 = new LinkedList(); 

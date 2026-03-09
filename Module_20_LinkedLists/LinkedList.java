@@ -149,6 +149,17 @@ public class LinkedList {
         return -1;//no valid count found !            
     }
 
+    public void reverseList() {
+        Node prev = null;
+        Node curr = this.head;
+        while(curr != null) {
+            curr = curr.next;
+            prev = curr;
+            curr.next = prev;
+            curr = curr.next;
+        } /////////// WRONG !!!!!!!!!!!!
+    }
+
     public static void main(String[] args) {
 
         LinkedList list1 = new LinkedList(); 

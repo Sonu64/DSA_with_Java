@@ -152,12 +152,26 @@ public class LinkedList {
     public void reverseList() {
         Node prev = null;
         Node curr = this.head;
+        Node restOfList;
+        // Reverse the direction of Arrows ---> to <----
         while(curr != null) {
-            curr = curr.next;
-            prev = curr;
+            // Saved rest of List
+            restOfList = curr.next;
+            // Cutting forward Link
             curr.next = prev;
-            curr = curr.next;
-        } /////////// WRONG !!!!!!!!!!!!
+            // Make prev look backwards, where curr actually was
+            prev = curr;
+            // Access the rest of the list using the next variable
+            curr = restOfList;
+        } 
+        // Swap head and tail pointers
+        this.tail = this.head;
+        // prev is already standing on the new head, the last non-null node !
+        this.head = prev;
+        // Above approach is safer than to manually use a seperate 
+        // temp variable similar to swapping 2 variables. Because here
+        // even if tail isn't updated properly in any other function,
+        // prev will always land on the last non-null node.
     }
 
     public static void main(String[] args) {

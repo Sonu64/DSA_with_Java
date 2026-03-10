@@ -174,6 +174,26 @@ public class LinkedList {
         // prev will always land on the last non-null node.
     }
 
+    public void findAndRemoveNthNodeFromEnd(int n) {
+        // !! Asked in Amazon, Flipkart and multiple other SWE coding interviews.
+        // Wannna delete the head, size-th node from End
+        if (n == getSize()) {
+            this.head = this.head.next;
+        }
+        else {
+            int positionFromBeginning = getSize()-n; // doing -1 will land up at the Node to delete, we wanna land at the previous Node actually...Read Loop condition comment on how this is achieved !
+            int count = 0;
+            Node prev = this.head;
+            while (count < positionFromBeginning-1) {
+                // Since we are starting @ 0, not 1, we need the -1 at the loop condition to stop at the previous Loop !
+                count++;
+                prev = prev.next;
+            }
+            prev.next = prev.next.next;
+        }
+    }
+
+
     public static void main(String[] args) {
 
         LinkedList list1 = new LinkedList(); 

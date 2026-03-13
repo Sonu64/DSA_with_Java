@@ -12,6 +12,8 @@ public class LinkedList {
         }
     }
 
+
+
     // Class level, needs objects to be made to access these. Non-static.
     private Node head; // may put static for both this.head and this.tail, but would be unable to create multiple lists then.
     private Node tail;
@@ -174,6 +176,28 @@ public class LinkedList {
         // prev will always land on the last non-null node.
     }
 
+
+    public boolean isPalindrome() {
+        LinkedList copy = new LinkedList();
+        Node curr = this.head;
+        while(curr != null) {
+            copy.addLast(curr.data);
+            curr = curr.next;
+        }
+        copy.reverseList();
+        // Now time to compare node-wise
+        Node curr1 = this.head;
+        Node curr2 = copy.head;
+
+        while(curr1 != null && curr2 != null) {
+            if(curr1.data != curr2.data)
+                return false;
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }
+        return true;
+    }
+
     public void findAndRemoveNthNodeFromEnd(int n) {
         // !! Asked in Amazon, Flipkart and multiple other SWE coding interviews.
         // Wannna delete the head, size-th node from End
@@ -205,7 +229,10 @@ public class LinkedList {
 
         // By making main static, Java says: "I will let you run this code globally so you can 'spawn' the first objects into existence."
 
-        list1.addFirst(90);
+        list1.addLast(90);
+        list1.addLast(100);
+        list1.addLast(91);
+        System.out.println(list1.isPalindrome());
     }
 }
 

@@ -72,6 +72,7 @@ public class LinkedList {
         if(index==0) {
             addFirst(data);
             return;
+
         }
 
         // getSize()-1 will add @ one index before last index.
@@ -195,6 +196,66 @@ public class LinkedList {
             curr1 = curr1.next;
             curr2 = curr2.next;
         }
+        return true;
+    }
+
+    public boolean quickIsPalindrome() {
+        // !! Important ! In-Place Palindrome checker
+        int midPosition = (int)Math.floor(getSize()/2);
+        Node endPointer = this.tail;
+        Node curr = this.head;
+        int nodePosition = 0;
+
+        while(nodePosition != midPosition) { 
+            curr = curr.next;
+            nodePosition++;
+        } // ! O(n)
+
+        // ! curr now stands at midPosition
+        Node midPointer = curr; // !! endPointer @ end, midPointer @ mid
+        // Now List is like 1--> 1--> 2 -->1 -->1 have to make it like 1--> 1--> 2 <--1 <--1
+        // We have to reverse the pointers of the 2nd half.
+        Node prev = null;
+        Node current = midPointer;
+        Node restOfList = null;
+        while(current != null) {
+            // Saved rest of List
+            restOfList = current.next;
+            // Cutting forward Link
+            current.next = prev;
+            // Make prev look backwards, where curr actually was
+            prev = current;
+            // Access the rest of the list using the next variable
+            current = restOfList;
+        }
+
+        Node curr1 = this.head;
+        Node curr2 = prev;
+
+        while (curr2 != midPointer) {
+            if (curr1.data != curr2.data)
+                return false;
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }
+
+
+        // Store rest Of list after the end of part left end
+        
+        // Fix List back
+        prev = null;
+        current = midPointer;
+        restOfList = null;
+        while (current != null) {
+            // Save restOfList
+            restOfList = current.next;
+            // Cut forward link
+            current.next = null;
+            //Link backwards
+            prev = current;
+            current = restOfList;
+        }
+
         return true;
     }
 

@@ -205,10 +205,14 @@ public class LinkedList {
         Node endPointer = this.tail;
         Node curr = this.head;
         int nodePosition = 0;
+        Node nodeBeforeMid = null;
 
         while(nodePosition != midPosition) { 
             curr = curr.next;
             nodePosition++;
+            if (nodePosition == midPosition-1)  {
+                nodeBeforeMid = curr;
+            }
         } // ! O(n)
 
         // ! curr now stands at midPosition
@@ -218,6 +222,8 @@ public class LinkedList {
         Node prev = null;
         Node current = midPointer;
         Node restOfList = null;
+
+
         while(current != null) {
             // Saved rest of List
             restOfList = current.next;
@@ -239,22 +245,24 @@ public class LinkedList {
             curr2 = curr2.next;
         }
 
-
-        // Store rest Of list after the end of part left end
         
+
         // Fix List back
-        prev = null;
-        current = midPointer;
-        restOfList = null;
-        while (current != null) {
-            // Save restOfList
-            restOfList = current.next;
-            // Cut forward link
-            current.next = null;
-            //Link backwards
-            prev = current;
-            current = restOfList;
+        Node restorationCurr = prev; // 'prev' was the head of the reversed half
+        Node restorationPrev = null;
+
+        while (restorationCurr != midPointer) {
+            Node nextTemp = restorationCurr.next;
+            restorationCurr.next = restorationPrev;
+            restorationPrev = restorationCurr;
+            restorationCurr = nextTemp;
         }
+
+        // THE MISSING LINK:
+        if (nodeBeforeMid != null) {
+            nodeBeforeMid.next = midPointer; 
+        }
+        midPointer.next = restorationPrev; // Reconnects the middle to the restored tail
 
         return true;
     }
@@ -290,10 +298,13 @@ public class LinkedList {
 
         // By making main static, Java says: "I will let you run this code globally so you can 'spawn' the first objects into existence."
 
-        list1.addLast(90);
-        list1.addLast(100);
-        list1.addLast(91);
+        list1.addLast(10);
+        list1.addLast(10);
+        list1.addLast(20);
+        list1.addLast(10);
+        list1.addLast(10);
         System.out.println(list1.isPalindrome());
+        System.out.println(list1.quickIsPalindrome());
     }
 }
 
